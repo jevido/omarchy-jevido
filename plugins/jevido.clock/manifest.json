@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "jevido.clock",
+  "name": "Clock & Calendars",
+  "version": "1.0.0",
+  "author": "Omarchy",
+  "description": "Date/time label with a calendar popup showing work and personal events",
+  "kinds": [
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "barWidget": "BarWidget.qml"
+  },
+  "barWidget": {
+    "displayName": "Clock & Calendars",
+    "description": "Date/time label with a calendar popup showing work and personal events",
+    "category": "Time",
+    "allowMultiple": false
+  },
+  "omarchy": {
+    "clonedFrom": "omarchy.clock"
+  }
+}
