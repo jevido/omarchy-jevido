@@ -1,0 +1,18 @@
+This repository contains work derived from Omarchy (https://omarchy.org),
+which is distributed under the MIT License.
+
+  plugins/jevido.clock
+      Derived from the first-party `omarchy.clock` plugin via
+      `omarchy plugin clone`. Panel.qml and Model.js originate there.
+      Changes: calendar integration for work and personal events, ISO week
+      numbers, configurable label formats and a vertical-bar layout.
+
+  plugins/jevido.media
+      Derived from the first-party `omarchy.media` plugin via
+      `omarchy plugin clone`. Service.qml and MediaModel.js originate there.
+
+  plugins/jevido.wiki
+      Original work. It follows Omarchy's plugin conventions and imports its
+      `qs.Ui` and `qs.Commons` modules at runtime, but ships no Omarchy code.
+
+The Omarchy copyright notice is reproduced in LICENSE alongside this project's.

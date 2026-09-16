@@ -1,0 +1,4 @@
+# Machine-specific: holds the wiki host and how to get a token.
+wiki-digest.json
+*.local.json
+__pycache__/
