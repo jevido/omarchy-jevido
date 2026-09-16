@@ -6,14 +6,20 @@
 # The thin repos are build output. Nobody commits to them, so force-pushing is
 # the correct operation rather than a destructive one.
 
+# plugin-id : published-repo. Not derivable -- the wiki plugin is published as
+# omarchy-wiki-pulse, which is the name it is known by.
 PLUGINS := jevido.wiki jevido.clock jevido.media
 GH_USER := jevido
+repo-jevido.wiki  := omarchy-wiki-pulse
+repo-jevido.clock := omarchy-clock
+repo-jevido.media := omarchy-media
 
 .PHONY: publish check link
 
 publish: check
 	@for p in $(PLUGINS); do \
-	  repo="omarchy-$${p#jevido.}"; \
+	  repo=$$(printf '%s' "$(foreach P,$(PLUGINS),$(P):$(repo-$(P)) )" | tr ' ' '\n' | grep "^$$p:" | cut -d: -f2); \
+	  test -n "$$repo" || { echo "no published repo mapped for $$p"; exit 1; }; \
 	  echo "→ $$p → $(GH_USER)/$$repo"; \
 	  sha=$$(git subtree split --prefix=plugins/$$p HEAD) || exit 1; \
 	  git push --force git@github.com:$(GH_USER)/$$repo.git $$sha:refs/heads/main || exit 1; \
